@@ -1,26 +1,15 @@
 package com.example.restapitesting
 
-import android.app.DownloadManager
-import android.graphics.BitmapFactory
-import android.net.sip.SipSession
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
-import org.json.JSONArray
 import org.json.JSONException
-import org.json.JSONObject
-import java.net.URI
-import java.net.URL
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,8 +46,8 @@ class MainActivity : AppCompatActivity() {
             }
         )
 
-        // Use the RequestQueue which is needed to parse the JSON
-        queue.add(jsonObjectRequest)
+        // Use the RequestQueue via the Singleton class which is needed to parse the JSON
+        Singleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
 
     }
 
