@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         val textView1 = findViewById<TextView>(R.id.astropic)
         val textView2 = findViewById<TextView>(R.id.text)
+        val textView3 = findViewById<TextView>(R.id.text2)
         val imageView = findViewById<ImageView>(R.id.image)
 
         // Parse the URL
@@ -34,6 +35,8 @@ class MainActivity : AppCompatActivity() {
                     textView1.text = "%s".format(response["title"])
                     // Put NASA's explanation as the text as listed in the JSON
                     textView2.text = "%s".format(response["explanation"])
+                    // Get copyright information
+                    textView3.text = "Captured by %s".format(response["copyright"])
 
                     // Places NASA's image in the imageView
                     Glide.with(this).load(response.getString("hdurl")).into(imageView)
