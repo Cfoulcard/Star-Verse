@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
                     textView2.text = "%s".format(response["explanation"])
                     // Get copyright information
                     textView3.text = "Captured by %s".format(response["copyright"])
-
                     // Places NASA's image in the imageView
                     Glide.with(this).load(response.getString("hdurl")).into(imageView)
                 } catch (e: JSONException) {
