@@ -9,12 +9,22 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
+import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 import org.json.JSONException
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val menuItems = arrayOf(
+            CbnMenuItem(
+                R.drawable.ic_launcher_background, // the icon
+                R.drawable.ic_launcher_background, // the AVD that will be shown in FAB
+                 // optional if you use Jetpack Navigation
+            )
+        )
+
 
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
