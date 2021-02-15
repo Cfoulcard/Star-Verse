@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.restapitesting"
-        minSdkVersion 29
+        minSdkVersion 25
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -49,5 +49,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     // For curved bottom navigation library
     implementation 'np.com.susanthapa.curved_bottom_navigation:curved_bottom_navigation:0.6.3'
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
 
 }

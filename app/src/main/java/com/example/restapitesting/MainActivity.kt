@@ -1,6 +1,7 @@
 package com.example.restapitesting
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -10,6 +11,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
+import np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
 import org.json.JSONException
 
 class MainActivity : AppCompatActivity() {
@@ -19,11 +21,21 @@ class MainActivity : AppCompatActivity() {
 
         val menuItems = arrayOf(
             CbnMenuItem(
-                R.drawable.ic_launcher_background, // the icon
-                R.drawable.ic_launcher_background, // the AVD that will be shown in FAB
-                 // optional if you use Jetpack Navigation
+                R.drawable.ic_notification, // the icon
+                R.drawable.avd_notification, // the AVD that will be shown in FAB
+            ),
+            CbnMenuItem(
+                R.drawable.ic_dashboard,
+                R.drawable.avd_dashboard,
+            ),
+            CbnMenuItem(
+                R.drawable.ic_settings,
+                R.drawable.avd_settings,
             )
         )
+        val navView = findViewById<CurvedBottomNavigationView>(R.id.nav_view)
+        navView.setMenuItems(menuItems, 1)
+        navView.isShown
 
 
         // Instantiate the RequestQueue.
@@ -50,7 +62,6 @@ class MainActivity : AppCompatActivity() {
                     // Places NASA's image in the imageView
                     Glide.with(this).load(response.getString("hdurl")).into(imageView)
                 } catch (e: JSONException) {
-
                 }
             },
             { error ->
@@ -63,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    }
+}
 
 
 
