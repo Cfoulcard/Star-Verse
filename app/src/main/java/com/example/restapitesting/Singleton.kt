@@ -1,9 +1,9 @@
 package com.example.restapitesting
 
-import android.content.Context
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
+import com.example.restapitesting.ui.ApodFragment
 
 /**
  * Because this app can make constant use of the network, a Singleton class
@@ -13,11 +13,11 @@ import com.android.volley.toolbox.Volley
  * The app as a result will work better and faster because less objects need to
  * be created.
  */
-class Singleton constructor(context: Context) {
+class Singleton(context: ApodFragment) {
     companion object {
         @Volatile
         private var INSTANCE: Singleton? = null
-        fun getInstance(context: Context) =
+        fun getInstance(context: ApodFragment) =
                 INSTANCE ?: synchronized(this) {
                     INSTANCE ?: Singleton(context).also {
                         INSTANCE = it

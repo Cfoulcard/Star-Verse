@@ -30,6 +30,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -39,6 +42,10 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -50,5 +57,11 @@ dependencies {
     // For curved bottom navigation library
     implementation 'np.com.susanthapa.curved_bottom_navigation:curved_bottom_navigation:0.6.3'
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
+    // Kotlin Fragments
+    def fragment_version = "1.3.0"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    // Java language implementation for fragments
+    implementation "androidx.fragment:fragment:$fragment_version"
+    // Kotlin
 
 }

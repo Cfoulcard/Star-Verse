@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/apod_fragment">
+
+    <fragment
+        android:id="@+id/settings_fragment"
+        android:name="com.example.restapitesting.ui.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/apod_fragment"
+        android:name="com.example.restapitesting.ui.ApodFragment"
+        android:label="ApodFragment" />
+    <fragment
+        android:id="@+id/astrobin_fragment"
+        android:name="com.example.restapitesting.ui.AstrobinFragment"
+        android:label="AstrobinFragment"
+        tools:layout="@layout/fragment_astrobin_fragment" />
+</navigation>
