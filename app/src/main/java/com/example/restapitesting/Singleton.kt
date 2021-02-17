@@ -15,6 +15,7 @@ import com.example.restapitesting.ui.ApodFragment
  */
 class Singleton(context: ApodFragment) {
     companion object {
+
         @Volatile
         private var INSTANCE: Singleton? = null
         fun getInstance(context: ApodFragment) =
@@ -23,6 +24,8 @@ class Singleton(context: ApodFragment) {
                         INSTANCE = it
                     }
                 }
+
+
     }
 
     private val requestQueue: RequestQueue by lazy {

@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
     tools:context=".ui.ApodFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:orientation="vertical"
+        android:paddingBottom="80dp"
         android:visibility="visible">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView3"
+            android:id="@+id/media_cardview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -26,17 +30,24 @@
             app:cardElevation="4dp">
 
             <ImageView
-                android:id="@+id/image"
+                android:id="@+id/media_content"
                 android:layout_width="match_parent"
                 android:layout_height="360dp"
                 android:adjustViewBounds="false"
                 android:hapticFeedbackEnabled="false"
                 android:scaleType="center" />
 
+            <VideoView
+                android:id="@+id/video_content"
+                android:layout_width="match_parent"
+                android:layout_height="360dp"
+                android:adjustViewBounds="false"
+                android:hapticFeedbackEnabled="false"
+                android:scaleType="center" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+            android:id="@+id/title_cardview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -44,10 +55,11 @@
             android:layout_marginEnd="16dp"
             android:translationZ="12dp"
             app:cardCornerRadius="2dp"
-            app:cardElevation="4dp">
+            app:cardElevation="4dp"
+            app:contentPadding="8dp">
 
             <TextView
-                android:id="@+id/astropic"
+                android:id="@+id/title_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="4dp"
@@ -61,7 +73,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView4"
+            android:id="@+id/copyright_cardview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -70,36 +82,11 @@
             android:overScrollMode="never"
             android:translationZ="12dp"
             app:cardCornerRadius="2dp"
-            app:cardElevation="4dp">
+            app:cardElevation="4dp"
+            app:contentPadding="8dp">
 
             <TextView
-                android:id="@+id/text2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:fontFamily="sans-serif-medium"
-                android:justificationMode="inter_word"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:text="Gathering Information..."
-                android:textAlignment="center"
-                android:textSize="18sp" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:overScrollMode="never"
-            android:translationZ="12dp"
-            app:cardCornerRadius="2dp"
-            app:cardElevation="4dp">
-
-            <TextView
-                android:id="@+id/text"
+                android:id="@+id/copyright_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
@@ -110,16 +97,38 @@
                 android:paddingRight="16dp"
                 android:paddingBottom="12dp"
                 android:text="Gathering Information..."
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="18sp" />
         </androidx.cardview.widget.CardView>
 
-        <np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
-            android:id="@+id/nav_view"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/description_cardview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="40dp"
+            android:overScrollMode="never"
             android:translationZ="12dp"
-            android:fitsSystemWindows="true" />
+            app:cardCornerRadius="2dp"
+            app:cardElevation="4dp"
+            app:contentPadding="8dp">
+
+            <TextView
+                android:id="@+id/description_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:fontFamily="sans-serif-medium"
+                android:justificationMode="inter_word"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Gathering Information..."
+                android:textAlignment="center"
+                android:textSize="14sp" />
+        </androidx.cardview.widget.CardView>
+
 
     </LinearLayout>
 </ScrollView>
