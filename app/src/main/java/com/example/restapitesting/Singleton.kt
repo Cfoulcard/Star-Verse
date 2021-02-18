@@ -14,6 +14,7 @@ import com.example.restapitesting.ui.ApodFragment
  * be created.
  */
 class Singleton(context: ApodFragment) {
+
     companion object {
 
         @Volatile
@@ -24,8 +25,6 @@ class Singleton(context: ApodFragment) {
                         INSTANCE = it
                     }
                 }
-
-
     }
 
     private val requestQueue: RequestQueue by lazy {

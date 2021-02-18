@@ -1,15 +1,21 @@
 package com.example.restapitesting
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.restapitesting.databinding.ActivityMainBinding
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 
+/** This Activity is mainly used to setup the Nav Graph and Bottom Navigation
+ * This will be inflated upon all fragments.
+ */
 class MainActivity : AppCompatActivity() {
 
+    // View Binding
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +23,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Finds the Navigation Graph
         val navController = findNavController(R.id.nav_host_fragment)
 
+        // For Bottom Navigation Menu. Uses Curved Bottom Navigation Library
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.astrobin_fragment,
@@ -29,66 +37,27 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         val menuItems = arrayOf(
             CbnMenuItem(
-                R.drawable.ic_notification,
-                R.drawable.avd_notification,
-                R.id.astrobin_fragment
-            ),
-            CbnMenuItem(
                 R.drawable.ic_dashboard,
                 R.drawable.avd_dashboard,
-                R.id.apod_fragment
+                R.id.astrobin_fragment
             ),
             CbnMenuItem(
                 R.drawable.ic_home,
                 R.drawable.avd_home,
+                R.id.apod_fragment
+            ),
+            CbnMenuItem(
+                R.drawable.ic_settings,
+                R.drawable.avd_settings,
                 R.id.settings_fragment
             )
         )
-
         binding.navView.setMenuItems(menuItems, 1)
         binding.navView.setupWithNavController(navController)
+
+
     }
 }
-
-
-        // Instantiate the RequestQueue.
-        /*val queue = Volley.newRequestQueue(this)
-
-        val textView1 = findViewById<TextView>(R.id.astropic)
-        val textView2 = findViewById<TextView>(R.id.text)
-        val textView3 = findViewById<TextView>(R.id.text2)
-        val imageView = findViewById<ImageView>(R.id.image)
-
-        // Parse the URL
-        val url = "https://api.nasa.gov/planetary/apod/?api_key=tpzRnSgZLfddTEoBGSS1DeLtODnMFFNrKrTbAvEL"
-
-        // Create JSON Object using JSONObjectRequest
-        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
-            { response ->
-                try {
-                    // Get NASA's title listed in the JSON
-                    textView1.text = "%s".format(response["title"])
-                    // Put NASA's explanation as the text as listed in the JSON
-                    textView2.text = "%s".format(response["explanation"])
-                    // Get copyright information
-                    textView3.text = "Captured by %s".format(response["copyright"])
-                    // Places NASA's image in the imageView
-                    Glide.with(this).load(response.getString("hdurl")).into(imageView)
-                } catch (e: JSONException) {
-                }
-            },
-            { error ->
-                Toast.makeText(this, "Cannot get info", Toast.LENGTH_SHORT).show()
-            }
-        )
-
-        // Use the RequestQueue via the Singleton class which is needed to parse the JSON
-        Singleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
-
-    }*/
-
-
-
 
 
 
