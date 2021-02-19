@@ -7,15 +7,15 @@
 
     <fragment
         android:id="@+id/settings_fragment"
-        android:name="com.example.restapitesting.ui.SettingsFragment"
+        android:name="com.example.starverse.ui.SettingsFragment"
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/apod_fragment"
-        android:name="com.example.restapitesting.ui.ApodFragment"
+        android:name="com.example.starverse.ui.ApodFragment"
         android:label="ApodFragment" />
     <fragment
         android:id="@+id/astrobin_fragment"
-        android:name="com.example.restapitesting.ui.AstrobinFragment"
+        android:name="com.example.starverse.ui.AstrobinFragment"
         android:label="AstrobinFragment"
         tools:layout="@layout/fragment_astrobin_fragment" />
 </navigation>

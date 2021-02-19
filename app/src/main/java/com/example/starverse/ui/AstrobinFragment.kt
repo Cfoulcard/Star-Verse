@@ -1,11 +1,11 @@
-package com.example.restapitesting.ui
+package com.example.starverse.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.restapitesting.R
+import com.example.starverse.R
 
 class AstrobinFragment : Fragment(R.layout.fragment_astrobin_fragment) {
 

@@ -1,9 +1,9 @@
-package com.example.restapitesting
+package com.example.starverse
 
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
-import com.example.restapitesting.ui.ApodFragment
+import com.example.starverse.ui.ApodFragment
 
 /**
  * Because this app can make constant use of the network, a Singleton class

@@ -1,4 +1,4 @@
-package com.example.restapitesting
+package com.example.starverse
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.restapitesting.ui
+package com.example.starverse.ui
 
 import android.content.Context
 import android.media.MediaPlayer
@@ -14,10 +14,9 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
-import com.example.restapitesting.API_KEY
-import com.example.restapitesting.R
-import com.example.restapitesting.Singleton
-import com.example.restapitesting.databinding.FragmentApodFragmentBinding
+import com.example.starverse.API_KEY
+import com.example.starverse.R
+import com.example.starverse.databinding.FragmentApodFragmentBinding
 import org.json.JSONException
 
 // TODO: Make video display when image is not available
@@ -65,7 +64,6 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
     ////////////////////////////////////////////////////////////////////////////////////////////////
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         // Instantiate the RequestQueue.
         val context = context

@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:fitsSystemWindows="true"
-        tools:context=".ui.ApodFragment">
+        tools:context="com.example.starverse.ui.ApodFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
