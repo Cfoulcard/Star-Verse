@@ -20,6 +20,7 @@ Star verse is an open source star gazing Android application equipping you with 
 - Android Studio
 - Afinity Designer (Graphic + Vector Image Editing)
 - Typora (For Easy Markdown styling)
+- Code Beautify (For easier JSON reading)
 
 ## Future Features of the App:
 
