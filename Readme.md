@@ -1,4 +1,4 @@
-# Star Verse ☄
+#Star Verse ☄
 
 Star verse is an open source star gazing Android application equipping you with the power to view pictures of the universe 🌌 The ability to view these images is gifted by NASA's API and (soon to be) Astrobin's API. 
 
