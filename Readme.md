@@ -4,7 +4,6 @@ Star verse is an open source star gazing Android application equipping you with 
 
 <img src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/homepage.png">
 
-
 ## Technologies in Use
 
 - Kotlin
@@ -17,13 +16,26 @@ Star verse is an open source star gazing Android application equipping you with 
 - [Curved Bottom Navigation Library](https://github.com/susonthapa/curved-bottom-navigation) by Susanthapa
 - ViewBinding
 
+## Tools Used
+- Android Studio
+- Afinity Designer (Graphic + Vector Image Editing)
+- Typora (For Easy Markdown styling)
+
+## Future Features of the App:
+
+- Implement Astrobin's search engine to find images of the universe
+- Add a settings menu to toggle options such as day/night mode and notifications
+- Possibly add details about objects in space through APIs, including weather
+- Upgrade animations throughout the app (such as loading images and more interactive UI)
+- Add a share button feature
+
 ## State of the App
 
 **🛠This app is currently a work in progress🛠** A future release will be planned on the Google Play Store!
 
 ## Contributing
 
-Because this is an open source project, anyone familiar with the technologies used to build Android Apps is allowed. There are a couple of features that are to be developed in the app, and here as well as within the app will be a list of contributors who helped build the finished product! 
+Because this is an open source project, anyone familiar with the technologies used to build Android Apps is allowed to help. There are a couple of features that are to be developed in the app, and here as well as within the app will be a list of contributors who helped build the finished product! 
 
 To contribute, please view the contributing guidelines (yet to be made). It is important to note that the API Key used to parse pictures and other information will not be provided by me, but you can follow this [NASA API Generator Link](https://api.nasa.gov/) and this [Astrobin API](https://welcome.astrobin.com/application-programming-interface) to generate your keys and plug them into code where necessary. **Please do not publicly display your API Key, store in a different object/class and do not list it in your pull request!** 
 
