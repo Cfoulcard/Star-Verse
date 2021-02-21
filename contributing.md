@@ -30,7 +30,7 @@
 ### First Time Contributor?
 Here are a couple of friendly tutorials to help you make a pull request: http://makeapullrequest.com/ and http://www.firsttimersonly.com/
 
-> Working on your first Pull Request? You can learn how from this *free* series, [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
+> Working on your first Pull Request? You can learn how from this *free* series, [How to Contribute to an Open Source Project on GitHub](https://app.egghead.io/playlists/how-to-contribute-to-an-open-source-project-on-github).
 
 ### Follow these steps to contribute!
 1. Discover issues or suggest something in the [Star Verse Issue](https://github.com/Cfoulcard/Star-Verse/issues) tab
