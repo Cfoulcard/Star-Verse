@@ -5,7 +5,7 @@ Star verse is an open source star gazing Android application equipping you with 
 
 <img src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/homepage.png">
 
-<img src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/homepage2.png">
+<img src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/homepage_2.png">
 
 ## Technologies in Use
 
