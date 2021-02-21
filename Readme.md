@@ -3,9 +3,9 @@
 <img src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/Logo-Vector.png">
 Star verse is an open source star gazing Android application equipping you with the power to view pictures of the universe 🌌 The ability to view these images is gifted by NASA's API and (soon to be) Astrobin's API. 
 
-<img src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/homepage.png">
+<img src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/homepage.png"> <img height="55%px" width="55%px" src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/homepage_2.png">
 
-<img src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/homepage2.png">
+
 
 ## Technologies in Use
 
@@ -16,7 +16,7 @@ Star verse is an open source star gazing Android application equipping you with 
 - Volley (For RESTful API)
 - JSON
 - Glide (For displaying images through JSON)
-- [Curved Bottom Navigation Library](https://github.com/susonthapa/curved-bottom-navigation) by Susanthapa
+- [Curved Bottom Navigation Library](https://github.com/susonthapa/curved-bottom-navigation) by Susonthapa
 - ViewBinding
 
 ## Tools Used
