@@ -1,10 +1,14 @@
 package com.example.starverse
 
+import android.content.res.Configuration
 import android.os.Bundle
+import android.renderscript.ScriptGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.preference.PreferenceFragmentCompat
 import com.example.starverse.databinding.ActivityMainBinding
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 
@@ -20,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         supportActionBar?.hide()
 
@@ -55,9 +60,9 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setMenuItems(menuItems, 1)
         binding.navView.setupWithNavController(navController)
 
-
     }
 }
+
 
 
 

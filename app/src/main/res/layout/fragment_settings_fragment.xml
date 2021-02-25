@@ -4,13 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.starverse.ui.SettingsFragment">
+    tools:context="com.example.starverse.ui.SettingsFragment"
+    >
 
-    <TextView
-        android:id="@+id/textView"
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_light_dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Under Construction!"
-        android:textAlignment="center"
-        android:textSize="36sp" />
+        android:onClick="lightSwitcher"
+        android:padding="8dp"
+        android:text="Light/Dark Theme"
+        android:textSize="18sp" />
+
 </LinearLayout>
