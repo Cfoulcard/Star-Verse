@@ -9,7 +9,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 import com.example.starverse.databinding.ActivityMainBinding
+import com.example.starverse.ui.SettingsFragment
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 
 /** This Activity is mainly used to setup the Nav Graph and Bottom Navigation
