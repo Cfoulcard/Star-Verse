@@ -2,8 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <SwitchPreferenceCompat
+            android:id="@+id/light_dark_switch"
             android:key="sync"
-            app:key="sync"
             app:title="Dark Theme" />
 
 </PreferenceScreen>
