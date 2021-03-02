@@ -27,6 +27,7 @@ import org.json.JSONException
 // TODO: Add string data
 // TODO: Add share button
 // TODO: Stop background battery usage
+// TODO: Allow the ability to see APODs of different days
 
 /**
 This is the NASA API's astronomy picture/video of the day (APOD). This fragment uses Volley and JSON to
@@ -57,8 +58,6 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
                     ?.replace(R.id.apod_fragment, ApodFragment())
                     ?.commit()
         }
-
-
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////

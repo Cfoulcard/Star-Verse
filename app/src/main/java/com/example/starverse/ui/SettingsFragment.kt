@@ -1,6 +1,7 @@
 package com.example.starverse.ui
 
-import android.content.res.Configuration
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,19 +12,23 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import androidx.preference.SwitchPreference
+import androidx.preference.SwitchPreferenceCompat
 import com.example.starverse.R
 
+/**
+ * The Fragment linked to the settings tab on the bottom nav. All settings are taken care of here.
+ */
 class SettingsFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
+
+        loadSettings()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-
-        loadSettings()
-
         val currentFragment: Fragment? = requireFragmentManager().findFragmentByTag("YourFragmentTag")
         val fragmentTransaction: FragmentTransaction = requireFragmentManager().beginTransaction()
         fragmentTransaction.detach(this)
@@ -37,25 +42,22 @@ class SettingsFragment : PreferenceFragmentCompat() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-     private fun loadSettings() {
-        val sp = PreferenceManager.getDefaultSharedPreferences(context)
-        val isNightTheme = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
-        val toggleTheme = sp.getBoolean("sync", true)
+    private fun loadSettings() {
+        val sp: SharedPreferences? = PreferenceManager.getDefaultSharedPreferences(context)
+        val toggleTheme = sp?.getBoolean("sync", false)
 
-        if (toggleTheme) {
-            when (isNightTheme) {
-
-                Configuration.UI_MODE_NIGHT_NO ->
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            }
+        // Means Night mode is not active and switch is not "on"
+        if (toggleTheme == false) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            MyPreferences(requireContext()).darkMode = 0
         }
 
-        if (!toggleTheme) {
-            when (isNightTheme) {
-                Configuration.UI_MODE_NIGHT_YES ->
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            }
+        // Means Night mode is active and switch is "on"
+        if (toggleTheme == true) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            MyPreferences(requireContext()).darkMode = 1
         }
     }
 }
@@ -64,13 +66,26 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.fragment_settings)
         supportFragmentManager.beginTransaction()
-                .replace(android.R.id.content, SettingsFragment())
+                .replace(R.id.settings, SettingsFragment())
                 .commit()
     }
 }
 
 
+class MyPreferences(context: Context) {
+
+    companion object {
+        private const val DARK_STATUS = "0"
+    }
+
+    private val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+
+    var darkMode = preferences.getInt(DARK_STATUS, 0)
+        set(value) = preferences.edit().putInt(DARK_STATUS, value).apply()
+
+}
 
 
 
