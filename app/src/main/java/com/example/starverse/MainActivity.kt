@@ -1,8 +1,10 @@
 package com.example.starverse
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -17,14 +19,19 @@ import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
  */
 class MainActivity : AppCompatActivity() {
 
+    // Initiate the ViewModel to have configuration data persist
+    private lateinit var viewModel: ViewModelFragment
+
     // View Binding
     private lateinit var binding: ActivityMainBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        Log.e("MainActivity", "Called ViewModelProvider.get")
+        viewModel = ViewModelProvider(this).get(ViewModelFragment::class.java)
 
         // Ensures settings are properly initialized with their default values
         PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false)

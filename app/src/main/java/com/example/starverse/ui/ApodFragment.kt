@@ -4,6 +4,7 @@ import android.content.Context
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -11,12 +12,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.example.starverse.API_KEY
 import com.example.starverse.R
+import com.example.starverse.ViewModelFragment
 import com.example.starverse.databinding.FragmentApodFragmentBinding
 import org.json.JSONException
 
@@ -31,12 +34,15 @@ import org.json.JSONException
 
 /**
 This is the NASA API's astronomy picture/video of the day (APOD). This fragment uses Volley and JSON to
-fetch data from the API and display results onscreen.
+fetch data from the API and display results onscreen. Further Info on https://github.com/nasa/apod-api
  */
 class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
 
     // App context that connects with the Singleton class. Grabs data from the RequestQueue
     val applicationContext: Context? = null
+
+    // Initiate the ViewModel to have configuration data persist
+    private lateinit var viewModel: ViewModelFragment
 
     // View Bindings
     private var _binding: FragmentApodFragmentBinding? = null
@@ -44,6 +50,7 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    // Used to run on platforms prior to Android 3.0 (Honeycomb - API 11)
     private val supportFragmentManager: FragmentManager? = null
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,6 +65,7 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
                     ?.replace(R.id.apod_fragment, ApodFragment())
                     ?.commit()
         }
+
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,6 +76,9 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
             savedInstanceState: Bundle?
     ): View {
         _binding = FragmentApodFragmentBinding.inflate(inflater, container, false)
+
+        Log.e("APODFragment", "Called ViewModelProvider.get")
+        viewModel = ViewModelProvider(this).get(ViewModelFragment::class.java)
 
         // Instantiate the RequestQueue.
         val context = context
