@@ -18,6 +18,7 @@ Star verse is an open source star gazing Android application equipping you with 
 - Glide (For displaying images through JSON)
 - [Curved Bottom Navigation Library](https://github.com/susonthapa/curved-bottom-navigation) by Susonthapa
 - ViewBinding
+- ViewModels
 - Dark Mode (Halfway complete)
 
 ## Tools Used
