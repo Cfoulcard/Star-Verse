@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -17,9 +18,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
-import com.example.starverse.API_KEY
-import com.example.starverse.R
-import com.example.starverse.ViewModelFragment
+import com.example.starverse.*
 import com.example.starverse.databinding.FragmentApodFragmentBinding
 import org.json.JSONException
 
@@ -85,71 +84,78 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
         val queue = Volley.newRequestQueue(context)
 
         // Parse the URL with the API key. Follow the link below to grab your API from NASA!
-        val url = "https://api.nasa.gov/planetary/apod/?api_key=$API_KEY"
+        val url = "https://api.nasa.gov/planetary/apod/?api_key=$NASA_API_KEY"
 
         // Create JSON Object using JSONObjectRequest
         val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
-            { response ->
-                try {
+                { response ->
+                    try {
 
-                    /* The response call may crash if getActivity() is null. This will return the
-                     response results if the getActivity() is not null. This is needed, or app
-                     may crash! */
-                    if (activity != null) {
+                        /* The response call may crash if getActivity() is null. This will return the
+                         response results if the getActivity() is not null. This is needed, or app
+                         may crash! */
+                        if (activity != null) {
 
-                        // Places NASA's image/video in the imageView via Glide
-                        if (response.has("hdurl")) {
-                            binding.videoContent.visibility = GONE
-                            Glide.with(this).load(response.getString("hdurl")).into(binding.mediaContent)
-                        } else if (response.has("url")) {
+                            // Places NASA's image/video in the imageView via Glide
+                            if (response.has("hdurl")) {
+                                binding.videoContent.visibility = GONE
+                               val loadImage = Glide.with(this)
+                                        .load(response.getString("hdurl"))
+                                        .into(binding.mediaContent)
 
-                            val mc: MediaPlayer? = null
-                            //     mc?.setOnPreparedListener()
-                            //     mc?.setScreenOnWhilePlaying(true)
+                            } else if (response.has("url")) {
 
-                            //      binding.mediaContent.visibility = GONE
-                            //     val video = Uri.parse(response.getString("url"))
+                                val mc: MediaPlayer? = null
+                                //     mc?.setOnPreparedListener()
+                                //     mc?.setScreenOnWhilePlaying(true)
 
-                            //    binding.videoContent.setVideoURI(video)
+                                //      binding.mediaContent.visibility = GONE
+                                //     val video = Uri.parse(response.getString("url"))
+
+                                //    binding.videoContent.setVideoURI(video)
+                            }
+
+
+
+                            // Get title information from JSON if listed in API - Hide if not listed
+                            if (response.has("title")) {
+                                binding.titleText.text = "%s".format(response["title"])
+                            } else {
+                                binding.titleCardview.visibility = GONE
+                            }
+
+                            // Get copyright information from JSON if listed in API - Hide if not listed
+                            if (response.has("copyright")) {
+                                binding.copyrightText.text = "Captured by %s".format(response["copyright"])
+                            } else {
+                                binding.copyrightCardview.visibility = GONE
+                            }
+
+                            // Get description information from JSON if listed in API - Hide if not listed
+                            if (response.has("explanation")) {
+                                binding.descriptionText.text = "%s".format(response["explanation"])
+                            } else {
+                                binding.descriptionCardview.visibility = GONE
+                            }
                         }
-
-                        // Get title information from JSON if listed in API - Hide if not listed
-                        if (response.has("title")) {
-                            binding.titleText.text = "%s".format(response["title"])
-                        } else {
-                            binding.titleCardview.visibility = GONE
-                        }
-
-                        // Get copyright information from JSON if listed in API - Hide if not listed
-                        if (response.has("copyright")) {
-                            binding.copyrightText.text = "Captured by %s".format(response["copyright"])
-                        } else {
-                            binding.copyrightCardview.visibility = GONE
-                        }
-
-                        // Get description information from JSON if listed in API - Hide if not listed
-                        if (response.has("explanation")) {
-                            binding.descriptionText.text = "%s".format(response["explanation"])
-                        } else {
-                            binding.descriptionCardview.visibility = GONE
-                        }
+                    } catch (e: JSONException) {
                     }
-                } catch (e: JSONException) {
+                },
+                { error ->
+                    Toast.makeText(context, "Cannot get info", Toast.LENGTH_SHORT).show()
                 }
-            },
-            { error ->
-                Toast.makeText(context, "Cannot get info", Toast.LENGTH_SHORT).show()
-            }
+
         )
 
         // Use the RequestQueue via the Singleton class which is needed to parse the JSON
-        //  Singleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
+         // Singleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
         queue.add(jsonObjectRequest)
 
         // Refresh feature implementation. Remember to configure XML Refresh Widget
         // Not fully implemented as of yet
         binding.swipeRefresh.setOnRefreshListener {
             binding.swipeRefresh.isRefreshing = false
+            Log.e("Refreshing", "Refresh")
         }
 
         return binding.root
@@ -157,14 +163,12 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }
 
 

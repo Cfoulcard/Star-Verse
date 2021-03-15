@@ -36,6 +36,14 @@
                 app:cardCornerRadius="4dp"
                 app:cardElevation="4dp">
 
+                <com.kpstv.imageloaderview.ImageLoaderView
+                    android:id="@+id/imageloaderview"
+                    android:layout_width="match_parent"
+                    android:layout_height="360dp"
+                    app:shimmering="true"
+                    app:overlay_drawable="@color/black_overlay"
+                    app:overlay_drawable_tint="?attr/colorControlNormal"/>
+
                 <ImageView
                     android:id="@+id/media_content"
                     android:layout_width="match_parent"
