@@ -14,8 +14,8 @@
         android:name="com.example.starverse.ui.ApodFragment"
         android:label="ApodFragment" />
     <fragment
-        android:id="@+id/astrobin_fragment"
-        android:name="com.example.starverse.ui.AstrobinFragment"
-        android:label="AstrobinFragment"
-        tools:layout="@layout/fragment_astrobin_fragment" />
+        android:id="@+id/nasa_search_fragment"
+        android:name="com.example.starverse.ui.NasaSearchFragment"
+        android:label="NasaSearchFragment"
+        tools:layout="@layout/fragment_nasa_search_fragment" />
 </navigation>

@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -20,6 +19,8 @@ import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.example.starverse.*
 import com.example.starverse.databinding.FragmentApodFragmentBinding
+import com.google.android.youtube.player.YouTubePlayer
+import com.google.android.youtube.player.YouTubePlayerFragment
 import org.json.JSONException
 
 // TODO: Make video display when image is not available
@@ -30,6 +31,7 @@ import org.json.JSONException
 // TODO: Add share button
 // TODO: Stop background battery usage
 // TODO: Allow the ability to see APODs of different days
+// TODO: Get rid of imageViewLoader after image/video is displayed
 
 /**
 This is the NASA API's astronomy picture/video of the day (APOD). This fragment uses Volley and JSON to
@@ -40,8 +42,12 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
     // App context that connects with the Singleton class. Grabs data from the RequestQueue
     val applicationContext: Context? = null
 
+    val youtubePlayerFragment: YouTubePlayerFragment? = null
+   // val youtubePlayer = YouTubePlayer.Provider("", YouTubePlayer.OnInitializedListener)
     // Initiate the ViewModel to have configuration data persist
     private lateinit var viewModel: ViewModelFragment
+
+    val youtube = YOUTUBE_API_KEY
 
     // View Bindings
     private var _binding: FragmentApodFragmentBinding? = null
@@ -98,23 +104,27 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
 
                             // Places NASA's image/video in the imageView via Glide
                             if (response.has("hdurl")) {
-                                binding.videoContent.visibility = GONE
-                               val loadImage = Glide.with(this)
+                              //  binding.videoContent.visibility = GONE
+                                val loadImage = Glide.with(this)
                                         .load(response.getString("hdurl"))
                                         .into(binding.mediaContent)
 
                             } else if (response.has("url")) {
+//                                binding.mediaContent.visibility = GONE
+//                                val uri: Uri? = Uri.parse("https://www.youtube.com/watch?v=zwt_K8oPYwE&list=PL94B3BDBA2D03B783&index=62")
+//                                binding.videoContent.setVideoURI(Uri.parse(uri.toString()))
+//                                binding.videoContent.setVideoPath("https://www.youtube.com/watch?v=zwt_K8oPYwE&list=PL94B3BDBA2D03B783&index=62")
+// https://www.youtube.com/embed/WJua8eXLX9o?rel=0
 
                                 val mc: MediaPlayer? = null
                                 //     mc?.setOnPreparedListener()
                                 //     mc?.setScreenOnWhilePlaying(true)
 
-                                //      binding.mediaContent.visibility = GONE
+
                                 //     val video = Uri.parse(response.getString("url"))
 
                                 //    binding.videoContent.setVideoURI(video)
                             }
-
 
 
                             // Get title information from JSON if listed in API - Hide if not listed

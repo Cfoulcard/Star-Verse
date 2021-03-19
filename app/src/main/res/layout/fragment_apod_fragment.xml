@@ -52,13 +52,11 @@
                     android:hapticFeedbackEnabled="false"
                     android:scaleType="center" />
 
-                <VideoView
-                    android:id="@+id/video_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="360dp"
-                    android:adjustViewBounds="false"
-                    android:hapticFeedbackEnabled="false"
-                    android:scaleType="center" />
+<!--                <com.google.android.youtube.player.YouTubePlayerView-->
+<!--                    android:id="@+id/video_content"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="360dp" />-->
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView

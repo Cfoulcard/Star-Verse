@@ -1,8 +1,6 @@
 package com.example.starverse
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -10,7 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.preference.PreferenceManager
 import com.example.starverse.databinding.ActivityMainBinding
-import com.example.starverse.ui.SettingsFragment
+import com.google.android.youtube.player.YouTubeBaseActivity
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 
 
@@ -48,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         // For Bottom Navigation Menu. Uses Curved Bottom Navigation Library
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.astrobin_fragment,
+                R.id.nasa_search_fragment,
                 R.id.apod_fragment,
                 R.id.settings_fragment,
             )
@@ -58,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             CbnMenuItem(
                 R.drawable.ic_dashboard,
                 R.drawable.avd_dashboard,
-                R.id.astrobin_fragment
+                R.id.nasa_search_fragment
             ),
             CbnMenuItem(
                 R.drawable.ic_home,

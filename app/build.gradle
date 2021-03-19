@@ -63,5 +63,12 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
     // ViewModel
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
+    // Image Shimmer Effect Library
+    implementation 'io.github.kaustubhpatange:imageloaderview:0.5'
+    // YoutubeAPI
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+
+
+
 
 }
