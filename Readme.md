@@ -20,6 +20,7 @@ Star verse is an open source star gazing Android application equipping you with 
 - ViewBinding
 - ViewModels
 - Dark Mode (Halfway complete)
+- YouTube's API
 
 ## Tools Used
 - Android Studio
