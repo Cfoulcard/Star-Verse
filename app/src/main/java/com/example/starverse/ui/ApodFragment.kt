@@ -1,8 +1,6 @@
 package com.example.starverse.ui
 
 import android.content.Context
-import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,8 +17,11 @@ import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.example.starverse.*
 import com.example.starverse.databinding.FragmentApodFragmentBinding
+import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerFragment
+import com.google.android.youtube.player.YouTubePlayerView
+
 import org.json.JSONException
 
 // TODO: Make video display when image is not available
@@ -33,6 +34,8 @@ import org.json.JSONException
 // TODO: Allow the ability to see APODs of different days
 // TODO: Get rid of imageViewLoader after image/video is displayed
 
+
+
 /**
 This is the NASA API's astronomy picture/video of the day (APOD). This fragment uses Volley and JSON to
 fetch data from the API and display results onscreen. Further Info on https://github.com/nasa/apod-api
@@ -42,17 +45,17 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
     // App context that connects with the Singleton class. Grabs data from the RequestQueue
     val applicationContext: Context? = null
 
-    val youtubePlayerFragment: YouTubePlayerFragment? = null
-   // val youtubePlayer = YouTubePlayer.Provider("", YouTubePlayer.OnInitializedListener)
-    // Initiate the ViewModel to have configuration data persist
     private lateinit var viewModel: ViewModelFragment
 
-    val youtube = YOUTUBE_API_KEY
+ //   private val youtubeVideoSuperPlayer: YouTubeVideoPlayer? = null
+
+
+
+
+
 
     // View Bindings
     private var _binding: FragmentApodFragmentBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     // Used to run on platforms prior to Android 3.0 (Honeycomb - API 11)
@@ -70,7 +73,6 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
                     ?.replace(R.id.apod_fragment, ApodFragment())
                     ?.commit()
         }
-
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,8 +81,12 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
+
     ): View {
         _binding = FragmentApodFragmentBinding.inflate(inflater, container, false)
+
+       // youtubeVideoSuperPlayer?.initialize(YOUTUBE_API_KEY, this)
+
 
         Log.e("APODFragment", "Called ViewModelProvider.get")
         viewModel = ViewModelProvider(this).get(ViewModelFragment::class.java)
@@ -110,22 +116,10 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
                                         .into(binding.mediaContent)
 
                             } else if (response.has("url")) {
-//                                binding.mediaContent.visibility = GONE
-//                                val uri: Uri? = Uri.parse("https://www.youtube.com/watch?v=zwt_K8oPYwE&list=PL94B3BDBA2D03B783&index=62")
-//                                binding.videoContent.setVideoURI(Uri.parse(uri.toString()))
-//                                binding.videoContent.setVideoPath("https://www.youtube.com/watch?v=zwt_K8oPYwE&list=PL94B3BDBA2D03B783&index=62")
-// https://www.youtube.com/embed/WJua8eXLX9o?rel=0
+                                binding.mediaContent.visibility = GONE
 
-                                val mc: MediaPlayer? = null
-                                //     mc?.setOnPreparedListener()
-                                //     mc?.setScreenOnWhilePlaying(true)
-
-
-                                //     val video = Uri.parse(response.getString("url"))
-
-                                //    binding.videoContent.setVideoURI(video)
+                             //   youtubeVideoSuperPlayer?.youTubeVidPlayer = binding.videoContent
                             }
-
 
                             // Get title information from JSON if listed in API - Hide if not listed
                             if (response.has("title")) {
@@ -154,7 +148,6 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
                 { error ->
                     Toast.makeText(context, "Cannot get info", Toast.LENGTH_SHORT).show()
                 }
-
         )
 
         // Use the RequestQueue via the Singleton class which is needed to parse the JSON
@@ -179,6 +172,14 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
         super.onDestroyView()
         _binding = null
     }
+
+//    override fun onInitializationSuccess(p0: YouTubePlayer.Provider?, p1: YouTubePlayer?, p2: Boolean) {
+//        p1?.loadVideo("wKJ9KzGQq0w")
+//    }
+//
+//    override fun onInitializationFailure(p0: YouTubePlayer.Provider?, p1: YouTubeInitializationResult?) {
+//        TODO("Not yet implemented")
+//    }
 }
 
 

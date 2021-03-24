@@ -1,10 +1,8 @@
 package com.example.starverse
 
-
 import android.os.Bundle
 import android.view.View
 import com.google.android.youtube.player.*
-
 
 open class YoutubeTest : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener {
     private var playerView: YouTubePlayerView? = null
@@ -28,7 +26,7 @@ open class YoutubeTest : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListe
         player: YouTubePlayer, wasRestored: Boolean
     ) {
         if (!wasRestored) {
-            player.loadVideo(VEDIO_ID) // for indivitual video
+            player.cueVideo(VEDIO_ID) // for indivitual video
             //	player.loadVideo(VEDIO_PLAY_LIST_ID); // for play list
         }
     }
@@ -38,7 +36,7 @@ open class YoutubeTest : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListe
 
     companion object {
         // for individual video
-        const val VEDIO_ID = "wKJ9KzGQq0w" // You can change video id
+        const val VEDIO_ID = "FQgeT36R4ew" // You can change video id
 
         //public static final String VEDIO_PLAY_LIST_ID ="72CF07D200AA2AFA"; // for play list
         const val DEVELOPER_KEY = "Add you Developer key here"
