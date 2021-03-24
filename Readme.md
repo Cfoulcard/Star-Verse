@@ -1,7 +1,9 @@
 # Star Verse ☄ 
 
-<img src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/Logo-Vector.png">
-Star verse is an open source star gazing Android application equipping you with the power to view pictures of the universe 🌌 The ability to view these images is gifted by NASA's API and (soon to be) Astrobin's API. 
+<p align = "center"><img height="80%px" width="80%px" src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/banner_long.png"></p>
+
+<p align = "center">Star verse is an open source star gazing Android application equipping you with the power to view pictures of the universe 🌌 The ability to view these images is gifted by NASA's API and (soon to be) Astrobin's API.</p>
+<br>
 
 <img height="35%px" width="35%px" src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/homepage.png"> <img height="55%px" width="55%px" src ="https://github.com/Cfoulcard/Star-Verse/blob/main/preview_pics/homepage_2.png">
 
