@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-      //  Log.e("MainActivity", "Called ViewModelProvider.get")
         viewModel = ViewModelProvider(this).get(ViewModelFragment::class.java)
 
         // Ensures settings are properly initialized with their default values

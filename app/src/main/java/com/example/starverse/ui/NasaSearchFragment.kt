@@ -70,7 +70,7 @@ class NasaSearchFragment : Fragment(R.layout.fragment_nasa_search_fragment) {
                                 binding.textView.text = "%s".format(response["version"])
                             } else {
                             //    binding.textView.visibility = View.GONE
-                                Toast.makeText(context, url, Toast.LENGTH_SHORT).show()
+                           //     Toast.makeText(context, url, Toast.LENGTH_SHORT).show()
 
                             }
                         }
