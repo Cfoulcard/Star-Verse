@@ -16,13 +16,18 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.example.starverse.*
+import com.example.starverse.NasaApiUrls.nasaUrlKey
 import com.example.starverse.databinding.FragmentApodFragmentBinding
+import com.example.starverse.repository.ApiRequests.NasaApiRequest
+import com.example.starverse.repository.models.Apod
+import com.example.starverse.repository.models.ApodService
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerFragment
 import com.google.android.youtube.player.YouTubePlayerView
 
 import org.json.JSONException
+import retrofit2.Callback
 
 // TODO: Make video display when image is not available
 // TODO: Animate text/ui to notify content is loading
@@ -45,14 +50,13 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
     // App context that connects with the Singleton class. Grabs data from the RequestQueue
     val applicationContext: Context? = null
 
+    val request = NasaApiRequest.buildService(ApodService::class.java)
+    val call = request.getTitle("title")
+
+
     private lateinit var viewModel: ViewModelFragment
 
  //   private val youtubeVideoSuperPlayer: YouTubeVideoPlayer? = null
-
-
-
-
-
 
     // View Bindings
     private var _binding: FragmentApodFragmentBinding? = null
@@ -83,6 +87,10 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
             savedInstanceState: Bundle?
 
     ): View {
+
+//        call.enqueue(object: Callback<Apod>) {
+//
+//        }
         _binding = FragmentApodFragmentBinding.inflate(inflater, container, false)
 
        // youtubeVideoSuperPlayer?.initialize(YOUTUBE_API_KEY, this)
@@ -95,11 +103,10 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
         val context = context
         val queue = Volley.newRequestQueue(context)
 
-        // Parse the URL with the API key. Follow the link below to grab your API from NASA!
-        val url = "https://api.nasa.gov/planetary/apod/?api_key=$NASA_API_KEY"
+
 
         // Create JSON Object using JSONObjectRequest
-        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
+        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, nasaUrlKey, null,
                 { response ->
                     try {
 
