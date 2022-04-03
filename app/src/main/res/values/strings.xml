@@ -111,4 +111,7 @@
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="theme_toggle">Light/Dark Theme</string>
     <string name="nasa_url">https://api.nasa.gov/</string>
+    <string name="no_explanation">No Explanation Available</string>
+    <string name="no_copyright">No Copyright Available</string>
+    <string name="no_title">No Title Available</string>
 </resources>
