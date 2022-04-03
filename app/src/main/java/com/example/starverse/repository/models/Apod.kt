@@ -1,6 +1,5 @@
 package com.example.starverse.repository.models
 
-import com.example.starverse.NasaApiUrls.nasaUrlKey
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,11 +9,17 @@ data class Apod(
     val explanation: String,
     val date: String,
     val copyright: String,
-    val mediaType: String,
+    val media_type: String,
+    val url: String,
+    val hdurl: String,
+    val thumbnail_url : String,
+    val service_version : String,
+    val resource : String,
 )
 
 interface ApodService {
 
-    @GET("title")
-    fun getTitle(@Query(nasaUrlKey) key: String) : Call<Apod>
+    @GET("/planetary/apod/")
+    fun getApod(@Query("api_key") key : String) : Call<Apod>
+
 }

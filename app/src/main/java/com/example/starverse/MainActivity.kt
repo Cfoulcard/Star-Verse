@@ -8,7 +8,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.preference.PreferenceManager
 import com.example.starverse.databinding.ActivityMainBinding
-import com.google.android.youtube.player.YouTubeBaseActivity
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 
 
@@ -17,10 +16,8 @@ import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
  */
 class MainActivity : AppCompatActivity() {
 
-    // Initiate the ViewModel to have configuration data persist
     private lateinit var viewModel: ViewModelFragment
 
-    // View Binding
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
