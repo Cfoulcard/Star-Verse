@@ -81,16 +81,14 @@ class ApodFragment : Fragment(R.layout.fragment_apod_fragment) {
         viewModel = ViewModelProvider(this).get(ViewModelFragment::class.java)
 
 
-
-
         // Refresh feature implementation. Remember to configure XML Refresh Widget
         // Not fully implemented as of yet
         binding.swipeRefresh.setOnRefreshListener {
             binding.swipeRefresh.isRefreshing = false
             Log.e("Refreshing", "Refresh")
         }
-
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
